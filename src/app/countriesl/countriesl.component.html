@@ -1,0 +1,12 @@
+<select [(ngModel)]='countryName'>
+    <option *ngFor="let countryInfo of countryListInfo">
+        {{countryInfo.name.official}}
+    </option>
+</select>
+<button (click)="onClick()">Info</button>
+<div *ngIf="countryInfo">
+    Capital: {{countryInfo[0].capital}}
+    Language: <p *ngFor="let lang of getObjectKeys(countryInfo[0].languages)">{{lang}}</p>
+    Flag:
+    <img src="{{countryInfo[0].flags.svg}}" style="width: 200px;height: 100px;">   
+</div>
